@@ -15,11 +15,22 @@ app.get("/", async (req, res) => {
   const data = await response.json();
   const genres = data;
 
-  console.log(genres);
-
   res.render("genres", {
     title: "Genres",
     genres
+  });
+});
+
+app.get("/genres/:slug", async (req, res) => {
+  const response = await fetch(`https://api.rawg.io/api/games?genres=${req.params.slug}&page_size=40`);
+  const data = await response.json();
+  const games = data;
+
+  console.log(games)
+
+  res.render("overview", {
+    title: "Games",
+    games
   });
 });
 
