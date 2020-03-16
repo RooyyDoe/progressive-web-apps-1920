@@ -1,0 +1,67 @@
+{{>header}}
+
+<div class="wrap">
+    <div class="back">
+        <a href="/"><i class="material-icons">
+                keyboard_backspace
+            </i></a>
+    </div>
+
+    <div class="select">
+        <select class="sort-games" id="test">
+            <option value="" disabled selected hidden>Selecteer uw sorteer methode</option>
+            <option value="a">Van A tot Z</option>
+            <option value="z">Van Z tot A</option>
+            <option value="hoog">Rating hoog - laag</option>
+            <option value="laag">Rating laag - hoog</option>
+        </select>
+    </div>
+
+    {{#each cleanGameData.results}}
+    <div class="card__wrapper">
+        <div class="game__card"
+            style="background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgb(32, 32, 32) 70%), url({{background_image}}) ;">
+
+            <div class="game__likes">
+                <img src="/images/heart.png">
+                <p>{{suggestions_count}}</p>
+            </div>
+
+            <div class="game__card__title">
+                <a href="/details/{{slug}}">
+                    <h1>{{name}}</h1>
+                </a>
+            </div>
+
+            <div class="release__date">
+                <p>Release Date:</p>
+                <p>{{released}}</p>
+            </div>
+
+            <div class="game__platform">
+                <p>Gaming Platform:</p>
+                <div class="game__platform__name">
+                    {{#each genres}}
+                    <a href="#{{slug}}">{{name}}</a>
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="game__rating">
+                <p>Game Rating:</p>
+                <p>{{rating}} / 5.0</p>
+            </div>
+
+            <div class="game__tags">
+                <p>Gaming Tags:</p>
+                <div class="game__tags__name">
+                    {{#each tags}}
+                    <p>{{name}}</p>
+                    {{/each}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {{/each}}
+</div>

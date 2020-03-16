@@ -1,0 +1,29 @@
+{{> header}}
+
+<div class="wrap">
+  {{#each genres.results}}
+  <div class="card__wrapper">
+    <div class="card"
+      style="background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgb(32, 32, 32) 70%), url({{image_background}}) ;">
+      <div class="card__content">
+        <a href="/genres/{{slug}}">
+          <h1>{{name}}</h1>
+        </a>
+        <div class="content__total-games">
+          <p>Total games: </p>
+          <p>{{games_count}}</p>
+        </div>
+        {{#each games}}
+        <div class="content__populair-games">
+          <a class="game-name" href="#/{{slug}}">{{name}}</a>
+          <div class="games__added">
+            <p>{{added}} </p>
+            <i class="material-icons">person_add</i>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

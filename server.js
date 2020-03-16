@@ -1,37 +1,30 @@
 const express = require("express");
-const fetch = require("node-fetch");
+const hbs = require('express-handlebars');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-app.use(express.static("static"));
+app.use('/', express.static("public/"))
 
-app.set("view engine", "ejs");
+// template engine
+app.set("view engine", "hbs")
 // Tell the views engine/ejs where the template files are stored (Settingname, value)
-app.set("views", "views");
+app.engine('hbs', hbs({
+  extname: 'hbs',
+  defaultLayout: 'main',
+  partialsDir: __dirname + '/views/partials/'
+}))
 
-app.get("/", async (req, res) => {
-  const response = await fetch('https://api.rawg.io/api/genres');
-  const data = await response.json();
-  const genres = data;
+// Data routes
+const genres = require('./routes/genres.js')
+const gameOverview = require('./routes/gameOverview.js')
+const gameDetails = require('./routes/gameDetails.js')
 
-  res.render("genres", {
-    title: "Genres",
-    genres
-  });
-});
+// Get routes
+app.get("/", genres)
 
-app.get("/genres/:slug", async (req, res) => {
-  const response = await fetch(`https://api.rawg.io/api/games?genres=${req.params.slug}&page_size=40`);
-  const data = await response.json();
-  const games = data;
+app.get("/genres/:slug", gameOverview)
 
-  console.log(games)
-
-  res.render("overview", {
-    title: "Games",
-    games
-  });
-});
+app.get("/details/:slug", gameDetails)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
