@@ -15,10 +15,10 @@
         </div>
         {{#each games}}
         <div class="content__populair-games">
-          <a class="game-name" href="#/{{slug}}">{{name}}</a>
+          <a class="game-name" href="/details/{{slug}}">{{name}}</a>
           <div class="games__added">
             <p>{{added}} </p>
-            <i class="material-icons">person_add</i>
+            <img src="/images/add.png" alt="add_person">
           </div>
         </div>
         {{/each}}

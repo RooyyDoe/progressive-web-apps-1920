@@ -22,7 +22,7 @@ header {
     width: 100%;
     font-size: 1.3em;
     color: white;
-    background-color: rgb(35, 56, 74, 0.7);
+    background-color: rgba(35, 56, 74, 0.7);
     top: 0;
     position: sticky;
 }
@@ -125,6 +125,11 @@ header {
     padding-right: .3em;
     font-weight: bold;
     opacity: 0.8;
+}
+
+.games__added>img {
+    height: 22px;
+    width: 22px;
 }
 
 /* Game page */
@@ -434,11 +439,13 @@ header {
     color: white;
 }
 
-.back>a>.material-icons {
+.back>a>img {
+    width: 64px;
+    height: 64px;
     position: fixed;
     z-index: 502;
     top: 3.5%;
-    left: 93%;
+    left: 92%;
     font-size: 4em;
 }
 

@@ -4,8 +4,6 @@ function cleanTagsData(data) {
     // Variable with the data in it.
     let dataObj = data
 
-    console.log(dataObj)
-
     // Making a new map of the results array in the data.
     dataObj.results.map(item => {
         // Making a new map of the tags object in results
@@ -23,7 +21,7 @@ function cleanTagsData(data) {
         // The value of the variable will override the tags object in results.
         item.tags = filteredArray
         return item
-    })
+    });
     return dataObj
 }
 
