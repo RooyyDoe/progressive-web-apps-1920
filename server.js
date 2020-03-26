@@ -51,4 +51,6 @@ app.get("/details/:slug", gameDetails)
 
 app.post("/sort/:id", sortOverview)
 
+app.get('/offline', (req, res) => res.render('offline.hbs'))
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -51,21 +51,43 @@ header {
 /* Genre page */
 
 .card {
+    position: relative;
     height: 370px;
     text-align: center;
     border-radius: 1em;
     color: white;
     background-color: rgb(32, 32, 32);
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: all .5s linear;
 }
 
+.image::after {
+    content: '\A';
+    position: absolute;
+    z-index: 0;
+    border-radius: 1em;
+    width: 405px; 
+    height: 370px;
+    top:0; 
+    left:0;
+    background:rgba(0,0,0,0.8);
+    opacity: .9;
+}
+
+.image > img {
+    position: absolute;
+    background: #F1F1FA;
+    width: 403px;
+    height: 370px;
+    display: block;
+    object-fit: cover;
+    border-radius: 1em;
+  }
+
 .card__content>a>h1 {
+    z-index: 5;
     font-size: 1.7em;
     max-width: 80%;
     text-align: center;
+    opacity: .9;
     color: white;
     border-bottom: 1px solid white;
     padding: 1em 1em .2em 1em;
@@ -78,12 +100,14 @@ header {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgb(253, 253, 253, 0.3);
+    opacity: .9;
     margin: 1em 1.5em 1.5em 1.5em;
 }
 
 .content__total-games>p:nth-of-type(1) {
     font-size: 1.3em;
     font-weight: bold;
+    opacity: .9;
 }
 
 .content__total-games>p:nth-of-type(2) {
@@ -98,6 +122,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0;
+    opacity: .9;
     margin: .4em 1em 0em 2em;
 }
 
@@ -135,16 +160,35 @@ header {
 /* Game page */
 
 .game__card {
+    position: relative;
     height: 100%;
     text-align: center;
     border-radius: 1em;
     color: white;
     background-color: rgb(32, 32, 32);
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: all .5s linear;
-    margin-bottom: 1em;
+}
+
+.game__image::after {
+    content: '\A';
+    position: absolute;
+    z-index: 0;
+    border-radius: 1em;
+    width: 406px; 
+    height: 100%;
+    top:0; 
+    left:0;
+    background:rgba(0,0,0,0.8);
+    opacity: .9;
+}
+
+.game__image > img {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 1em;
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
+    width: 403px;
+    height: 100%;
+    margin-left: -12.5em;
 }
 
 .game__card__title>a>h1 {
@@ -154,6 +198,7 @@ header {
     color: white;
     padding: 1em 1em .5em 1em;
     margin: 0 auto;
+    opacity: 0.9;
     margin-bottom: 1.5em;
 }
 
@@ -161,17 +206,20 @@ header {
     display: flex;
     justify-items: flex-start;
     padding: 1em;
+    opacity: 0.9;
     margin: 0;
 }
 
 .game__likes>img {
     width: 55px;
+    opacity: 0.9;
     height: 55px;
 }
 
 .game__likes>p {
     margin-left: -2.6em;
     margin-top: 1em;
+    opacity: 0.9;
     text-align: center;
 }
 
@@ -182,12 +230,14 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1em;
+    opacity: 0.9;
     margin: .4em 1em 0em 1em;
     border-bottom: 1px solid rgb(255, 255, 255, 0.5);
 }
 
 .release__date>p:nth-of-type(1) {
     font-weight: bold;
+    opacity: 0.9;
     font-size: .9em;
 }
 
@@ -204,6 +254,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1em;
+    opacity: 0.9;
     margin: .4em 1em 0em 1em;
     border-bottom: 1px solid rgb(255, 255, 255, 0.5);
 }
@@ -211,7 +262,7 @@ header {
 .game__platform>p:nth-of-type(1) {
     font-weight: bold;
     font-size: .9em;
-    opacity: 1;
+    opacity: .9;
 }
 
 .game__platform__name {
@@ -230,7 +281,7 @@ header {
 }
 
 .game__platform__name>a:hover {
-    opacity: 1;
+    opacity: .9;
 }
 
 /* game rating */
@@ -239,6 +290,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    opacity: 0.9;
     padding: 1em;
     margin: .4em 1em 0em 1em;
     border-bottom: 1px solid rgb(255, 255, 255, 0.5);
@@ -260,6 +312,7 @@ header {
 .game__tags {
     padding: 1em;
     margin: .4em 1em 0em 1em;
+    opacity: 0.9;
 }
 
 .game__tags>p {
@@ -267,7 +320,7 @@ header {
     padding-bottom: 1em;
     font-weight: bold;
     font-size: .9em;
-    opacity: 1;
+    opacity: .9;
 }
 
 .game__tags__name {
@@ -598,7 +651,38 @@ button:hover {
     }
 }
 
+/* Offline mode block */
 
+.offline_mode {
+    width: 30%;
+    margin: 100px auto 0px;
+    text-align: center;
+    color: white;
+}
+
+.offline_mode > img {
+    width: 60px;
+    height: 60px;
+}
+
+.offline_mode > p {
+    opacity: 0.5;
+    line-height: 25px;
+    padding-bottom: 3em;
+}
+
+.offline_mode > a {
+    margin-top: 5em;
+    border: 1px solid rgb(255, 255, 255, 0.5);
+    transition: 1s;
+    padding: 1.3em 5em;
+    border-radius: .2em;
+}
+
+.offline_mode > a:hover {
+    border: 1px solid rgb(255, 255, 255, 1);
+    transition: 1s;
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {

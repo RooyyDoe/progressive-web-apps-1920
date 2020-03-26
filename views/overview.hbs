@@ -19,9 +19,10 @@
 
     {{#each gameOverview.results}}
     <div class="card__wrapper">
-        <div class="game__card"
-            style="background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgb(32, 32, 32) 70%), url({{background_image}}) ;">
-
+        <div class="game__card">
+            <div class="game__image">
+                <img src="{{background_image}}" alt="{{slug}}">
+            </div>
             <div class="game__likes">
                 <img src="/images/heart.png" alt="game_likes">
                 <p>{{suggestions_count}}</p>

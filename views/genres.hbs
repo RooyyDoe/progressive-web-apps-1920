@@ -3,8 +3,10 @@
 <div class="wrap">
   {{#each genres.results}}
   <div class="card__wrapper">
-    <div class="card"
-      style="background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgb(32, 32, 32) 70%), url({{image_background}}) ;">
+    <div class="card">
+      <div class="image">
+        <img class="lazy" src="{{image_background}}" alt="{{slug}}">
+      </div>
       <div class="card__content">
         <a href="/genres/{{slug}}">
           <h1>{{name}}</h1>
@@ -27,3 +29,5 @@
   </div>
   {{/each}}
 </div>
+
+{{> scripts}}
