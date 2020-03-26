@@ -110,11 +110,57 @@ I have used gulp to minify my files. I am using "gulp-clean-css", "gulp-uglify",
 
 ### Gzip Compression
 
+All the static files need to be as small as possible. This will decrease the download time of my website. I've used Gulp Gzip for the last compression of my website. Gzip is used to increase the chane of any of the compression types to be supported by the browser.
 
+#### Cable internet (93.13 Mbps)
+
+![Schermafdruk 2020-03-26 14 13 01](https://user-images.githubusercontent.com/40355914/77650765-33892b00-6f6c-11ea-9b82-db45664ba4a0.png)
+
+![Schermafdruk 2020-03-26 14 12 25](https://user-images.githubusercontent.com/40355914/77650777-35eb8500-6f6c-11ea-9788-6fedaf485137.png)
 
 ### Service Worker
 
+I have used a service worker to handle the offline mode of my application. Users are able to load in my website with no internet if they have cashed pages. Otherways they will see a offline page where they can refresh the page and get back to the Homepage. But this will only work when the users internet is back.
+
+#### Cable internet (93.13 Mbps)
+
+![Schermafdruk 2020-03-26 14 29 48](https://user-images.githubusercontent.com/40355914/77652316-574d7080-6f6e-11ea-9cac-4945106e740c.png)
+
+![Schermafdruk 2020-03-26 14 29 01](https://user-images.githubusercontent.com/40355914/77652326-59173400-6f6e-11ea-9715-586af7daf065.png)
+
+#### WiFi (1.92 Mbps)
+
+<details>
+  <summary>WiFi Tests</summary>
+  
+![Schermafdruk 2020-03-26 14 34 19](https://user-images.githubusercontent.com/40355914/77652667-e8244c00-6f6e-11ea-9777-aa8da245397a.png)
+
+![Schermafdruk 2020-03-26 14 33 29](https://user-images.githubusercontent.com/40355914/77652684-ec506980-6f6e-11ea-9a56-617a332b5570.png)
+</details>
+
 ## Conclusion
+
+### Lazy Loading
+
+When I added lazy loading into my application the rendering time of a page became way lower than when you load in all the images at once. With or without good internet it is faster. you will see the biggest difference when you compare the ones with bad internet. I think this is a hacky way to reduce lagg on your application, but if it works it works.
+
+### Minify files
+
+I have had some issues with gulp, mainly because I wanted to use "Sourcemaps" but I didn't get it working properly so I have commented it in my code for now. I also had a error with my code that it wasn't in the good 'code style' and for this I've used babel to help me get rid of this error. 
+
+I think I could have done a better job at making the code look more cleaner than it is right now. I wanted to compress the files even more with "gulp-concat", but when I did this and write the files to my browser it gave some errors. So I have minified every file alone. 
+
+The files are compressed. I can't really see if it does something with the rendering of my application but the KB's are less than when you run the normal files, so I guess it worked!
+
+### Service worker
+
+When I wanted to test the service worker in the "Audits" it did not work. But it only worked when I didn't had my internet cable in my laptop. So if you want to see the best result you should watch the bad internet one here. It also kept screwing my service worker over. When I ran the tests it would set the service worker to redundant and I did not know how to fix that.
+
+But my service worker works perfect and the user will be able to see content if they have cashed it before turning the internet off.
+
+And the offline page would look something like:
+
+<img width="1440" alt="Schermafdruk 2020-03-26 14 53 40" src="https://user-images.githubusercontent.com/40355914/77654646-9af5a980-6f71-11ea-9a3b-f4cd2f0955df.png">
 
 
 ## Sources
