@@ -7,7 +7,8 @@ Rebuilding [WAFS](https://github.com/RooyyDoe/web-app-from-scratch-1920) to a pr
 - [Install](#install)
 - [Application description](#application-description)
 - [Explanation](#explanation)
-- [Conclusion](#conclusion)
+- [Performance Conclusion](#performance-onclusion)
+- [Final Conclusion](#final-conclusion
 - [Sources](#sources)
 - [Credits](#credits)
 - [Licence](#licence)
@@ -138,7 +139,7 @@ I have used a service worker to handle the offline mode of my application. Users
 ![Schermafdruk 2020-03-26 14 33 29](https://user-images.githubusercontent.com/40355914/77652684-ec506980-6f6e-11ea-9a56-617a332b5570.png)
 </details>
 
-## Conclusion
+## Performance Conclusion
 
 ### Lazy Loading
 
@@ -162,6 +163,23 @@ And the offline page would look something like this:
 
 <img width="1440" alt="Schermafdruk 2020-03-26 14 53 40" src="https://user-images.githubusercontent.com/40355914/77654646-9af5a980-6f71-11ea-9a3b-f4cd2f0955df.png">
 
+## Final Conclusion
+
+> Je snapt het verschil tussen client side en server side renderen en kan server side rendering toepassen voor het tonen van data uit een API
+
+I have turned my **client side** application in almost a full **server-side** application. I am receiving all the API data server-side and the rendering of the HTML also happens server-side. Only the functionalities like **Sorting** and **Lazy Loading** are happening client-side. If you turn off Javascript, the core of my application will still be able to run and the user will still be able to navigate between the different pages.
+
+> Je begrijpt hoe een Service Worker werkt en kan deze in jouw applicatie op een nuttige wijze implementeren.
+
+I have implemented a **Service worker** that helps by giving the user a better user-experience on my application. The Service worker is helping me by cashing different fetch calls that are made when a user is navigating through my application. When the user is offline or has no connection the Service worker will be able to load in the content if it is cashed. If the service worker can't find the fetches in the cashe it will return a **offline page**.
+
+> Je begrijpt hoe de critical render path werkt, en hoe je deze kan optimaliseren
+
+For this I have tried to add different optimisations in the application. First I wanted to improve the way of loading in images, because this was slowing down the load time of the application. When I added the **lazy-loading** the page will only load in the first images that are available on the **view-height** whenever the user is scrolling down more images will be loading in. This took around 400ms with fast internet (93.13 Mbps) off the loading speed and around 1.5 minutes with slow internet (1.82 Mbps).
+
+I have tried to minify different **CSS** / **Javascript** files to speed up the load time aswell, because my application is not a big scale it only took off some minor **kb's**. This is shown in the tests that I have done, but I can't see any changes in the loading speed of the application. 
+
+When I tested the application it showed that my performance where really high all the time. So on this case I couldn't see big difference if I added something that would change the performance like **Minifying files** or **lazy loading**. I still think this improves the performance of the application anyway. When you load in the application it is fast and can be used right away. Images will be loaded in with no time, because the lazy loading and I think the users will have a great experience on my application.
 
 ## Sources
 
