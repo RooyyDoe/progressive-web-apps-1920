@@ -8,7 +8,7 @@ Rebuilding [WAFS](https://github.com/RooyyDoe/web-app-from-scratch-1920) to a pr
 - [Application description](#application-description)
 - [Explanation](#explanation)
 - [Performance Conclusion](#performance-onclusion)
-- [Final Conclusion](#final-conclusion
+- [Final Conclusion](#final-conclusion)
 - [Sources](#sources)
 - [Credits](#credits)
 - [Licence](#licence)
